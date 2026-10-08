@@ -16,7 +16,6 @@ export const App = () => {
   return (
     <CategoryProvider>
       <div className="App">
-        <h1 className="hide">Product Catalog</h1>
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="home" element={<Navigate to="/" replace />} />

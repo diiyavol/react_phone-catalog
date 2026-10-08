@@ -39,6 +39,8 @@ export const Body = () => {
       <main className="main">
         <div className="container">
           <div className="main__content">
+            <h1 className="hide">Product Catalog</h1>
+
             <Banner />
             <ProductsSlider
               newProducts={newProducts}
