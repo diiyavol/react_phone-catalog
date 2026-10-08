@@ -12,7 +12,7 @@
     gap: 8px;
     margin-top: 88px;
     margin-bottom: 40px;
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 600;
     font-size: 12px;
     line-height: 100%;
@@ -41,7 +41,7 @@
   }
 
   &__back-text {
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 700;
     font-size: 12px;
     line-height: 100%;
@@ -53,6 +53,7 @@
 
   &__content {
     @include page-grid;
+
     grid-template-areas: 'left center right';
 
     @include on-mobile {
@@ -92,7 +93,6 @@
     width: 80px;
     height: 80px;
     aspect-ratio: 1 / 1;
-    padding: 2px;
     background: $white;
     border: 1px solid $elements;
     padding: 2px;
@@ -101,6 +101,7 @@
     &:hover {
       border: 1px solid $icons;
     }
+
     @include on-desktop {
       padding: 4px;
     }
@@ -175,7 +176,7 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 8px;
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 600;
     font-size: 12px;
     line-height: 100%;
@@ -185,7 +186,7 @@
   }
 
   &__capacity {
-    padding: 24px 0 24px 0;
+    padding: 24px 0;
     border-bottom: 1px solid $elements;
   }
 
@@ -195,12 +196,13 @@
 
     font-size: 32px;
     &--full {
-      font-family: 'Mont-Regular';
+      font-family: Mont-Regular, sans-serif;
       text-decoration: line-through;
       font-size: 22px;
       margin-left: 8px;
       color: $secondary;
     }
+
     margin-top: 32px;
     margin-bottom: 16px;
   }
@@ -292,7 +294,7 @@
     width: 63px;
     padding: 8px;
     text-align: center;
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;
@@ -342,7 +344,7 @@
   }
 
   &__text {
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;

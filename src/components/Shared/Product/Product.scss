@@ -7,7 +7,7 @@
     transition: box-shadow 0.3s ease;
 
     &:hover {
-      box-shadow: 0px 2px 16px 0px #0000001a;
+      box-shadow: 0 2px 16px 0 #0000001a;
     }
 
     &--image {
@@ -33,18 +33,19 @@
   &__title {
     display: flex;
     align-items: center;
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-size: 14px;
     line-height: 21px;
     height: 42px;
     letter-spacing: 0%;
     color: $primary;
     text-decoration: none;
+
     @include font-face-regular;
   }
 
   &__price {
-    font-family: 'Mont-Bold';
+    font-family: Mont-Bold, sans-serif;
     font-size: 22px;
     line-height: 140%;
     letter-spacing: 0%;
@@ -52,12 +53,14 @@
     margin-top: 8px;
 
     @include font-face-bold;
+
     &--container {
       border-bottom: 1px solid $elements;
       display: flex;
     }
+
     &--full {
-      font-family: 'Mont-Regular';
+      font-family: Mont-Regular, sans-serif;
       font-weight: 500;
       line-height: 100%;
       letter-spacing: 0%;
@@ -65,11 +68,12 @@
 
       color: $secondary;
       margin-left: 8px;
+
       @include font-face-regular;
     }
   }
   &__specs {
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 700;
     font-size: 12px;
     line-height: 100%;
@@ -111,14 +115,16 @@
   }
 
   &__add {
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 700;
     font-size: 14px;
     line-height: 21px;
     letter-spacing: 0%;
     text-align: center;
     color: #fff;
+
     @include font-face-regular;
+
     border: 0;
 
     appearance: none;
@@ -130,7 +136,7 @@
     transition: box-shadow 0.3s ease;
 
     &:hover {
-      box-shadow: 0px 3px 13px 0px #17203166;
+      box-shadow: 0 3px 13px 0 #17203166;
     }
 
     &--added {
@@ -163,6 +169,7 @@
       background-repeat: no-repeat;
       background-position: center;
     }
+
     transition: border-color 0.4s ease;
 
     &:hover {

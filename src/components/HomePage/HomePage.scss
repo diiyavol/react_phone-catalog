@@ -53,6 +53,7 @@
       left: 10%;
       width: 90%;
       transition: transform 0.4s ease;
+
       @include on-mobile {
         top: 8%;
         left: 8%;
@@ -63,6 +64,7 @@
 
   &__banner {
     grid-column: span 4;
+
     @include on-desktop {
       grid-column: span 8;
     }
@@ -81,15 +83,15 @@
   }
 
   &__spec-label {
-    font-family: 'Mont-SemiBold';
+    font-family: Mont-SemiBold, sans-serif;
     font-size: 20px;
     line-height: 100%;
     letter-spacing: 0%;
-    margin: 24px 0 4px 0;
+    margin: 24px 0 4px;
   }
 
   &__spec-value {
-    font-family: 'Mont-Regular';
+    font-family: Mont-Regular, sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 21px;

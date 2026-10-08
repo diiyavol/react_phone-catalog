@@ -61,32 +61,16 @@
     justify-content: center;
     transition: all 0.3s ease;
 
-    &:hover:not(:disabled) {
-      border-color: $primary;
-      color: $primary;
-    }
-
     &:disabled {
       opacity: 0.4;
       cursor: not-allowed;
       border-color: $elements;
       color: $icons;
     }
-  }
 
-  &__btn {
-    width: 32px;
-    height: 32px;
-    border: 1px solid $elements;
-    background: transparent;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+    &:hover:not(:disabled) {
+      border-color: $primary;
+      color: $primary;
     }
   }
 
