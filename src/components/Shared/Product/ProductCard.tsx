@@ -23,7 +23,6 @@ export const ProductCard: React.FC<Props> = ({
   const isFav = fav.some(item => item.id === product.id);
   const showFullPrice =
     hasDiscount && product.fullPrice && product.fullPrice > product.price;
-  // const hasDiscount = product.price && product.price < product.fullPrice;
   const targetId = product.itemId || product.id;
 
   return (
