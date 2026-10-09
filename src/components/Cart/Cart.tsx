@@ -4,11 +4,16 @@ import { useContext, useState } from 'react';
 import { DispatchContext, StateContext } from '../../context/ItemProvider';
 import { ErrorMessage } from '../Shared/ErrorMessage';
 import { Modal } from '../Shared/Modal/Modal';
+import { getProductDetails } from '../../utils/productUtils';
 
 export const Cart = () => {
-  const { cart, totalCount, totalPrice } = useContext(StateContext);
+  const { cart, totalCount } = useContext(StateContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const totalPrice = cart.reduce((sum, item) => {
+    const { price } = getProductDetails(item.product);
 
+    return sum + price * item.quantity;
+  }, 0);
   const isEmpty = cart.length === 0;
 
   const dispatch = useContext(DispatchContext);

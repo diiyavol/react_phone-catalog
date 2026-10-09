@@ -2,6 +2,20 @@
 
 .catalog {
   margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__pagination-container {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background-color: $white;
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid $elements;
+  }
 
   &__top {
     display: flex;
@@ -40,7 +54,7 @@
 
   &__products-cards {
     margin-top: 24px;
-
+    padding-bottom: 24px;
     @include page-grid;
   }
 

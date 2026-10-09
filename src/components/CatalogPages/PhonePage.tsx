@@ -83,7 +83,7 @@ export const PhonePage: React.FC = () => {
     });
   };
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const maxYear = Math.max(...productsData.map(p => p.year));
 
   return (
     <main className="main">
@@ -116,15 +116,25 @@ export const PhonePage: React.FC = () => {
                   <p>There are no phones yet</p>
                 ) : (
                   <div className="catalog__products-cards">
-                    {visiblePhones.map(product => (
-                      <div className="catalog__products-card" key={product.id}>
-                        <ProductCard product={product} />
-                      </div>
-                    ))}
+                    {visiblePhones.map(product => {
+                      const isBrandNew = product.year === maxYear;
+
+                      return (
+                        <div
+                          className="catalog__products-card"
+                          key={product.id}
+                        >
+                          <ProductCard
+                            product={product}
+                            hasDiscount={!isBrandNew}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
-                <div>
+                <div className="catalog__pagination-container">
                   <Pagination
                     currentPage={validPage}
                     totalPages={totalPages}

@@ -16,7 +16,7 @@ export const Header = () => {
   const { totalCount, fav } = useContext(StateContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const bodyElement = document.querySelector('.body');
+  const bodyElement = document.querySelector('.page');
 
   if (!bodyElement) {
     return null;

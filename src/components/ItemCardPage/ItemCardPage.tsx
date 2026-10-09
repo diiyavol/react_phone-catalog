@@ -12,6 +12,7 @@ import { DispatchContext, StateContext } from '../../context/ItemProvider';
 import { Product } from '../../types/Product';
 import { ProductsSlider } from '../Shared/Slider/ProductsSlider';
 import { getSuggestedProducts } from '../Api';
+import { getProductDetails } from '../../utils/productUtils';
 
 type ProductDetail = Phone | Accessories;
 
@@ -28,6 +29,7 @@ export const ItemCardPage = () => {
   ];
 
   const product = allProducts.find(item => item.id === productId);
+
   const baseProduct: Product | undefined = productsData.find(
     p => p.itemId === product?.id,
   );
@@ -60,6 +62,8 @@ export const ItemCardPage = () => {
     return <div className="not-found">Product not found</div>;
   }
 
+  const { price, fullPrice, hasDiscount } = getProductDetails(baseProduct);
+
   const getVariantUrl = (targetCapacity: string, targetColor: string) => {
     const formattedCapacity = targetCapacity.toLowerCase().trim();
     const formattedColor = targetColor
@@ -86,8 +90,6 @@ export const ItemCardPage = () => {
     item =>
       item.itemId === product.id || String(item.id) === String(baseProduct.id),
   );
-  const hasDiscount =
-    product.priceDiscount && product.priceDiscount < product.priceRegular;
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -188,14 +190,9 @@ export const ItemCardPage = () => {
                     </div>
                   </div>
                   <h2 className="info__price">
-                    ${product.priceDiscount}
+                    ${price}
                     {hasDiscount && (
-                      <span
-                        className="info__price--full"
-                        data-text={product.priceRegular}
-                      >
-                        ${product.priceRegular}
-                      </span>
+                      <span className="info__price--full">${fullPrice}</span>
                     )}
                   </h2>
                   <div className="product__buttons">

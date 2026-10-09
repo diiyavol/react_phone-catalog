@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { CartItemType, DispatchContext } from '../../context/ItemProvider';
 import { Link } from 'react-router-dom';
+import { getProductDetails } from '../../utils/productUtils';
 
 interface Props {
   item: CartItemType;
@@ -9,8 +10,8 @@ interface Props {
 export const CartItem: React.FC<Props> = ({ item }) => {
   const dispatch = useContext(DispatchContext);
   const { product, quantity } = item;
-
-  const total = product.price * quantity;
+  const { price } = getProductDetails(item.product);
+  const total = price * quantity;
   const targetId = product.itemId || product.id;
 
   return (

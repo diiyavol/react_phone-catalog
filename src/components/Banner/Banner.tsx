@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const images = [
   './img/Banner.png',
@@ -37,7 +38,8 @@ export const Banner = () => {
             aria-label="Previous slide"
           ></button>
           <div className="banner__frame">
-            <div
+            <Link
+              to="product/apple-iphone-14-pro-128gb-spaceblack"
               className="banner__track"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
@@ -49,7 +51,7 @@ export const Banner = () => {
                   className="banner__center"
                 />
               ))}
-            </div>
+            </Link>
           </div>
 
           <button

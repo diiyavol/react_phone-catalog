@@ -83,7 +83,13 @@ export const AccessoriesPage: React.FC = () => {
     });
   };
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const maxYear = useMemo(() => {
+    if (!accesorie.length) {
+      return 0;
+    }
+
+    return Math.max(...accesorie.map(p => p.year));
+  }, [accesorie]);
 
   return (
     <main className="main">
@@ -117,15 +123,25 @@ export const AccessoriesPage: React.FC = () => {
                   <p>There are no accessories yet</p>
                 ) : (
                   <div className="catalog__products-cards">
-                    {visiblePhones.map(product => (
-                      <div className="catalog__products-card" key={product.id}>
-                        <ProductCard product={product} />
-                      </div>
-                    ))}
+                    {visiblePhones.map(product => {
+                      const isBrandNew = product.year === maxYear;
+
+                      return (
+                        <div
+                          className="catalog__products-card"
+                          key={product.id}
+                        >
+                          <ProductCard
+                            product={product}
+                            hasDiscount={!isBrandNew}
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 )}
 
-                <div>
+                <div className="catalog__pagination-container">
                   <Pagination
                     currentPage={validPage}
                     totalPages={totalPages}
