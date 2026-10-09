@@ -28,6 +28,10 @@ body {
   @include font-face-bold;
 }
 
+.aside-active {
+  overflow: hidden;
+}
+
 html {
   scroll-behavior: smooth;
 }

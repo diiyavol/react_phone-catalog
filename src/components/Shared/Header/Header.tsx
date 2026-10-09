@@ -16,7 +16,17 @@ export const Header = () => {
   const { totalCount, fav } = useContext(StateContext);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => setIsMenuOpen(prev => !prev);
+  const bodyElement = document.querySelector('.body');
+
+  if (!bodyElement) {
+    return null;
+  }
+
+  const toggleMenu = () => {
+    setIsMenuOpen(prev => !prev);
+    bodyElement.classList.toggle('aside-active');
+  };
+
   const closeMenu = () => setIsMenuOpen(false);
 
   const getLinkClass = (categoryPath: string, categoryName: string) => {
