@@ -45,6 +45,7 @@ export const Body = () => {
             <ProductsSlider
               newProducts={newProducts}
               title="Brand new models"
+              hasDiscount={false}
             />
             <section className="shop-by-category">
               <h2 className="shop-by-category__title">Shop by category</h2>

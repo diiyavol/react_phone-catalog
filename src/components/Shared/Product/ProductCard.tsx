@@ -5,9 +5,13 @@ import { DispatchContext, StateContext } from '../../../context/ItemProvider';
 
 type Props = {
   product?: Product;
+  hasDiscount?: boolean;
 };
 
-export const ProductCard: React.FC<Props> = ({ product }) => {
+export const ProductCard: React.FC<Props> = ({
+  product,
+  hasDiscount = true,
+}) => {
   const dispatch = useContext(DispatchContext);
   const { cart, fav } = useContext(StateContext);
 
@@ -17,8 +21,9 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
 
   const isAdded = cart.some(item => item.product.id === product.id);
   const isFav = fav.some(item => item.id === product.id);
-
-  const hasDiscount = product.price && product.price < product.fullPrice;
+  const showFullPrice =
+    hasDiscount && product.fullPrice && product.fullPrice > product.price;
+  // const hasDiscount = product.price && product.price < product.fullPrice;
   const targetId = product.itemId || product.id;
 
   return (
@@ -31,7 +36,8 @@ export const ProductCard: React.FC<Props> = ({ product }) => {
       </Link>
       <div className="product__price--container">
         <span className="product__price">
-          ${product.price || product.fullPrice}
+          {showFullPrice ? `$${product.price}` : `$${product.fullPrice}`}
+
           {hasDiscount && (
             <span
               className="product__price--full"

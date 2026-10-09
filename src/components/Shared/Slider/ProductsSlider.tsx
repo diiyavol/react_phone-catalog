@@ -5,9 +5,14 @@ import { Product } from '../../../types/Product';
 type Props = {
   newProducts: Product[];
   title?: string;
+  hasDiscount?: boolean;
 };
 
-export const ProductsSlider: React.FC<Props> = ({ newProducts, title }) => {
+export const ProductsSlider: React.FC<Props> = ({
+  newProducts,
+  title,
+  hasDiscount = true,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const VISIBLE_CARDS = 4;
@@ -64,7 +69,7 @@ export const ProductsSlider: React.FC<Props> = ({ newProducts, title }) => {
         >
           {newProducts.map(product => (
             <div className="new-model__card-wrapper" key={product.id}>
-              <ProductCard product={product} />
+              <ProductCard product={product} hasDiscount={hasDiscount} />
             </div>
           ))}
         </div>
